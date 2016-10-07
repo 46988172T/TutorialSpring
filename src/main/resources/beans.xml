@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mundo" class="com.leosssdroid.beans.Mundo">
+        <property name="saludo" value="Hola Mundo!"></property>
+    </bean>
+
+    <bean id="persona" class="com.leosssdroid.beans.Persona">
+        <constructor-arg type="int" value="1"></constructor-arg> <!-- type sirve para decirle que tipo de dato es -->
+        <constructor-arg index="2" value="Leo"></constructor-arg> <!-- index sirve para darle la posicion que ocupara en el constructor-->
+        <constructor-arg index="1" value="Leosssdroid"></constructor-arg>
+    </bean>
+
+    <bean id="otraPersona" class="com.leosssdroid.beans.OtraPersona">
+        <property name="pais">
+            <bean id="pais" class="com.leosssdroid.beans.Pais">
+                <property name="nombre" value="Uruguay"></property>
+                <property name="ciudad">
+                    <bean id="ciudad" class="com.leosssdroid.beans.Ciudad">
+                        <property name="nombre" value="Barcelona"></property> <!--utilizamos beans anidados-->
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="id" value="2"></property>
+        <property name="nombre" value="Leo"></property>
+        <property name="apodo" value="Leossdroid"></property>
+    </bean>
+
+</beans>
